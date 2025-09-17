@@ -15,5 +15,6 @@ func f(x int) {
 
 func main() {
 	go f(30)
+	go f(20)
 	f(10)
 }
