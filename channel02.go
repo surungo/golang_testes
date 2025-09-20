@@ -10,6 +10,13 @@ import (
 func sendNumber(ch chan<- int, num int, time_v int) {
 
 	time.Sleep(time.Duration(time_v) * time.Second)
+	//var originalValue int
+	// select {
+	// case originalValue = <-ch:
+	// 	fmt.Println("Valor original no canal antes de alterar:", originalValue)
+	// default:
+	// 	fmt.Println("Canal vazio, nenhum valor original encontrado.")
+	// }
 	ch <- num // Envia 'num' através do canal.
 }
 
@@ -26,13 +33,13 @@ func main() {
 	time.Sleep(3 * time.Second)
 	num := <-numChannel
 	fmt.Println("Recebi o número:", num)
-	time.Sleep(5 * time.Second)
+	time.Sleep(2 * time.Second)
 	num = <-numChannel
 	fmt.Println("Recebi o número:", num)
-	time.Sleep(7 * time.Second)
+	time.Sleep(2 * time.Second)
 	num = <-numChannel
 	fmt.Println("Recebi o número:", num)
-	time.Sleep(9 * time.Second)
+	time.Sleep(2 * time.Second)
 	num = <-numChannel
 	fmt.Println("Recebi o número:", num)
 }

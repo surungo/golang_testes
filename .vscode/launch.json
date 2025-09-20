@@ -23,7 +23,21 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/channel.go"
+            "program": "${workspaceFolder}/channel01.go"
+        },
+        {
+            "name": "channel02",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/channel02.go"
+        },
+        {
+            "name": "channel03",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/channel03.go"
         }
     ]
 }
