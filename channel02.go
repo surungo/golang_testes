@@ -7,12 +7,12 @@ import (
 
 // Função que simula o envio de um número após algum cálculo ou operação.
 // Ela envia um número para o canal fornecido.
-func sendNumber(ch chan<- int, num int, time_v int) {
+func sendNumber(ch chan<- int,cho <-chan int, num int, time_v int) {
 
 	time.Sleep(time.Duration(time_v) * time.Second)
 	var originalValue int
 	//	originalValue = -> ch
-	originalValue = <-ch
+	originalValue = <-cho
 	fmt.Println("Valor original no canal antes de alterar:", originalValue, time_v)
 
 	//var originalValue int
@@ -30,10 +30,10 @@ func main() {
 	numChannel := make(chan int)
 
 	// Inicia a goroutine sendNumber para enviar um número através do canal.
-	go sendNumber(numChannel, 20, 2)
-	go sendNumber(numChannel, 40, 4)
-	go sendNumber(numChannel, 60, 6)
-	go sendNumber(numChannel, 80, 8)
+	go sendNumber(numChannel,numChannel, 20, 2)
+	go sendNumber(numChannel,numChannel, 40, 4)
+	go sendNumber(numChannel,numChannel, 60, 6)
+	go sendNumber(numChannel,numChannel, 80, 8)
 
 	time.Sleep(3 * time.Second)
 	num := <-numChannel
